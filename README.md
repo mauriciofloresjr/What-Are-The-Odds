@@ -1,7 +1,7 @@
 # What-Are-The-Odds
 
 ## What is "What are the odds"?
-** What are the odds? ** is a random number game that allows players to set their fate in a randomizers hands.
+**What are the odds?** is a random number game that allows players to set their fate in a randomizers hands.
 
 ## How to play
 - Choose a friend and ask them "What are the odds you do x dare?"
