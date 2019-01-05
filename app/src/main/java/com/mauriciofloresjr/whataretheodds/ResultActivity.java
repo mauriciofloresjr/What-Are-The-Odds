@@ -1,14 +1,10 @@
 package com.mauriciofloresjr.whataretheodds;
 
-import android.content.Intent;
 import android.media.MediaPlayer;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Half;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.text.DecimalFormat;
 import java.util.Random;
@@ -25,6 +21,7 @@ public class ResultActivity extends AppCompatActivity {
         showResults();
     }
 
+    //What the button does when you hit it
     public void showResults(){
         //Setting vars for storage and taking numbers from user input
         int oddsChanceNum = getIntent().getIntExtra(ODDS_CHANCE, 0);
