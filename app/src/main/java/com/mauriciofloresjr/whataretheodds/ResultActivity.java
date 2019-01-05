@@ -24,6 +24,7 @@ public class ResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_result);
         showResults();
     }
+
     public void showResults(){
         //Setting vars for storage and taking numbers from user input
         int oddsChanceNum = getIntent().getIntExtra(ODDS_CHANCE, 0);
@@ -36,7 +37,7 @@ public class ResultActivity extends AppCompatActivity {
         TextView statView = findViewById(R.id.statView1);
 
         //Creating a decimal format for formatting percentage number
-        DecimalFormat precision = new DecimalFormat("###.#####");
+        DecimalFormat precision = new DecimalFormat("###.###");
 
         //Creating sounds
         MediaPlayer victorySnd = MediaPlayer.create(this, R.raw.success_sound);
@@ -48,6 +49,7 @@ public class ResultActivity extends AppCompatActivity {
         randomNum = random.nextInt(oddsChanceNum) + 1;
         String randomNumStr = String.valueOf(randomNum);
 
+        //Updating TextViews with results and user inputs
         resultsTitleTV2.setText(getString(R.string.resultsText2, oddsChanceNum));
         resultsTitleTV4.setText(getString(R.string.resultsText4,oddsGuessNum));
         resultsTV.setText(randomNumStr);
@@ -55,6 +57,7 @@ public class ResultActivity extends AppCompatActivity {
         //Creating a percentage calculator
         double percentage = (1.000f / oddsChanceNum) * 100;
 
+        //Updating stats view
         statView.setText(getString(R.string.percentOdds,precision.format(percentage)));
 
         //Creating victory case
@@ -65,6 +68,7 @@ public class ResultActivity extends AppCompatActivity {
         }
     }
 
+    //Code for the back button
     public void backBtn(View v){
         finish();
     }

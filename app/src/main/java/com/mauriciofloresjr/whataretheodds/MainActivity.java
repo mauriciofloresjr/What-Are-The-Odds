@@ -22,39 +22,46 @@ public class MainActivity extends AppCompatActivity {
 
     public void btnFunc(View view) {
 
-        // Creating toasts for error handling
+        //Creating toasts for error handling
         Toast numError = Toast.makeText(this, "Numbers cannot be lower than 1!", Toast.LENGTH_SHORT);
         Toast guessOutOfRange = Toast.makeText(this,"Guess cannot exceed odds!", Toast.LENGTH_SHORT);
-        Toast numOutOfRange = Toast.makeText(this,"Your inputs cannot go over 100000!", Toast.LENGTH_SHORT);
+        Toast numOutOfRange = Toast.makeText(this,"Your inputs cannot go over 100,000!", Toast.LENGTH_SHORT);
         Toast inputMissing = Toast.makeText(this,"You must put a number in every field!", Toast.LENGTH_SHORT);
 
         //Finding all text views for user input
         EditText oddsChance = findViewById(R.id.oddsChanceTV);
         EditText oddsGuess = findViewById(R.id.oddsGuessTV);
 
-        // Creating the intent to switch activities
+        //Creating the intent to switch activities
         Intent results = new Intent(this, ResultActivity.class);
 
-        // Transfers user input strings to integers to prepare for data transfer to results activity
+        //Transfers user input strings to integers to prepare for data transfer to results activity
         String oddsChanceStr = oddsChance.getText().toString();
-        int oddsChanceNum = Integer.parseInt(oddsChanceStr);
-
-        String oddsGuessStr = oddsGuess.getText().toString();
-        int oddsGuessNum = Integer.parseInt(oddsGuessStr);
-
-        // Setting if statement to check if user has numbers greater than 1
-        if (oddsGuessNum < 1 || oddsChanceNum < 1) {
-            numError.show();
-        } else if (oddsChanceStr.isEmpty() || oddsGuessStr.isEmpty()) {
+        int oddsChanceNum;
+        if(oddsChanceStr.isEmpty()) {
             inputMissing.show();
-        } else if (oddsGuessNum > oddsChanceNum) {
-            guessOutOfRange.show();
-        } else if (oddsGuessNum > 100000 || oddsChanceNum > 100000) {
-            numOutOfRange.show();
         } else {
-            results.putExtra(ODDS_CHANCE, oddsChanceNum);
-            results.putExtra(ODDS_GUESS, oddsGuessNum);
-            startActivity(results);
+            oddsChanceNum = Integer.parseInt(oddsChanceStr);
+            String oddsGuessStr = oddsGuess.getText().toString();
+            int oddsGuessNum;
+            if (oddsGuessStr.isEmpty()) {
+                inputMissing.show();
+            } else {
+                oddsGuessNum = Integer.parseInt(oddsGuessStr);
+
+                //Setting if statement to check if user has numbers greater than 1
+                if (oddsGuessNum < 1 || oddsChanceNum < 1) {
+                    numError.show();
+                 } else if (oddsGuessNum > oddsChanceNum) {
+                    guessOutOfRange.show();
+                } else if (oddsGuessNum > 100000 || oddsChanceNum > 100000) {
+                    numOutOfRange.show();
+                } else {
+                    results.putExtra(ODDS_CHANCE, oddsChanceNum);
+                    results.putExtra(ODDS_GUESS, oddsGuessNum);
+                    startActivity(results);
+                }
+            }
         }
     }
 }
