@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">What Are The Odds?</string>
+    <string name="btn1Text">Test Your Luck</string>
+    <string name="titleText">What are the odds?</string>
+    <string name="oddsGuess">5</string>
+    <string name="oddsChance">10</string>
+    <string name="title2Text">What is your guess?</string>
+    <string name="resultsText1">The odds were:</string>
+    <string name="resultsText2">1 out of %1$d</string>
+    <string name="resultsText3">You guessed</string>
+    <string name="resultsText4">%1$d</string>
+    <string name="resultsText5">Result:</string>
+    <string name="oddsResult">5</string>
+    <string name="statsText">Statistics:</string>
+    <string name="percentOdds">You had a %1$s%% chance to successfully guess that number.</string>
+    <string name="btnBack">Try again</string>
+
+</resources>
