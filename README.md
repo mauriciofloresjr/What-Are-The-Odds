@@ -1,5 +1,5 @@
 # What-Are-The-Odds
-
+![What Are The Odds App Logo](https://i.imgur.com/rFZuyzR.jpg)
 ## What is "What are the odds"?
 **What are the odds?** is a random number game that allows players to set their fate in a randomizers hands.
 
